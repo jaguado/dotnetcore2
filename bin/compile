@@ -47,6 +47,9 @@ fi
 echo "Installing the dependencies"
 apt_install libunwind8 gettext
 
+echo "Installing ping tool"
+apt-get install -y iputils-ping
+
 echo "Installing dotnet"
 install_dotnet $BUILD_DIR $CACHE_DIR $NETCORE_SDK $NETCORE_VERSION
 
