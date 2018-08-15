@@ -66,6 +66,7 @@ dotnet publish $PROJECT_FILE --output /$BUILD_DIR/runtime --configuration Releas
 
 cd /
 echo "Cleaning old files (${CACHE_DIR})"
+echo "Actual size: " && du -s $CACHE_DIR
 rm -rf $CACHE_DIR
 rm -rf "/${BUILD_DIR}/bin"
 rm -rf "/${BUILD_DIR}/obj"
