@@ -67,7 +67,7 @@ mv newrelic  release/
 
 
 echo "Cleaning source code files"
-rm -rf $CACHE_DIR && rm -rf bin && rm -rf obj && rm -rf Controllers && rm -rf Models && rm -f * 
+rm -rf $CACHE_DIR && rm -rf bin && rm -rf obj && rm -rf Controllers && rm -rf Models && rm -rf *.cs*
 
 cat << EOT >> ${BUILD_DIR}/Procfile
 web: cd \$HOME/release && ASPNETCORE_URLS='http://+:\$PORT' dotnet "./${PROJECT_NAME}.dll"
