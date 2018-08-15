@@ -62,12 +62,13 @@ fi
 
 echo "Project name: ${PROJECT_NAME}"
 echo "publish ${PROJECT_FILE}"
-dotnet publish $PROJECT_FILE --output /$ENV_DIR --configuration Release --runtime linux-x64
+dotnet publish $PROJECT_FILE --output /$BUILD_DIR/runtime --configuration Release --runtime linux-x64
 
 cd /
-echo "Cleaning old files (${BUILD_DIR} and ${CACHE_DIR})"
-rm -rf $BUILD_DIR
+echo "Cleaning old files (${CACHE_DIR})"
 rm -rf $CACHE_DIR
+rm -rf "/${BUILD_DIR}/bin"
+rm -rf "/${BUILD_DIR}/obj"
 
-web: cd /$ENV_DIR && ASPNETCORE_URLS='http://+:\$PORT' dotnet "./${PROJECT_NAME}.dll"
+web: cd /$BUILD_DIR/runtime && ASPNETCORE_URLS='http://+:\$PORT' dotnet "./${PROJECT_NAME}.dll"
 EOT
