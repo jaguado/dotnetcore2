@@ -63,15 +63,11 @@ fi
 echo "Project name: ${PROJECT_NAME}"
 echo "publish ${PROJECT_FILE}"
 dotnet publish $PROJECT_FILE --output /$BUILD_DIR/heroku_output --configuration Release --runtime linux-x64
+mv newrelic  heroku_output/
 
-cd /
+
 echo "Cleaning old files (${CACHE_DIR})"
-echo "Actual size: " && du -s $CACHE_DIR
-
-rm -rf $CACHE_DIR
-rm -rf "/${BUILD_DIR}/bin"
-rm -rf "/${BUILD_DIR}/obj"
-rm -rf "/${BUILD_DIR}/.heroku/dotnet"
+rm -rf $CACHE_DIR && rm -rf bin && rm -rf obj
 
 cat << EOT >> ${BUILD_DIR}/Procfile
 web: cd \$HOME/heroku_output && ASPNETCORE_URLS='http://+:\$PORT' dotnet "./${PROJECT_NAME}.dll"
