@@ -71,6 +71,7 @@ echo "Actual size: " && du -s $CACHE_DIR
 rm -rf $CACHE_DIR
 rm -rf "/${BUILD_DIR}/bin"
 rm -rf "/${BUILD_DIR}/obj"
+rm -rf "/${BUILD_DIR}/.heroku/dotnet"
 
 cat << EOT >> ${BUILD_DIR}/Procfile
 web: cd \$HOME/heroku_output && ASPNETCORE_URLS='http://+:\$PORT' dotnet "./${PROJECT_NAME}.dll"
