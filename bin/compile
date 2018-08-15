@@ -48,6 +48,7 @@ echo "Installing the dependencies"
 apt_install libunwind8 gettext
 
 echo "Installing ping tool"
+apt-get update
 apt-get install -y iputils-ping
 
 echo "Installing dotnet"
