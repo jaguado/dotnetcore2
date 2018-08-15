@@ -20,6 +20,7 @@ BP_DIR=$(cd $(dirname ${0:-}); cd ..; pwd)
 : ${NETCORE_SDK:="2.1.4"}
 : ${NETCORE_VERSION:="2.0.5"}
 
+mkdir -p /runtime
 mkdir -p $BUILD_DIR/.profile.d
 cp $BP_DIR/profile/* $BUILD_DIR/.profile.d/
 
@@ -63,8 +64,6 @@ fi
 echo "Project name: ${PROJECT_NAME}"
 echo "publish ${PROJECT_FILE}"
 dotnet publish $PROJECT_FILE --output /runtime --configuration Release --runtime linux-x64
-
-cat << EOT >> ${BUILD_DIR}/Procfile
 
 cd /
 echo "Cleaning old files (${BUILD_DIR} and ${CACHE_DIR})"
