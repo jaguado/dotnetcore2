@@ -45,11 +45,7 @@ elif [ -n "$(cat $PROJECT_FILE | grep 'netcoreapp2.1')" ]; then
 fi
 
 echo "Installing the dependencies"
-apt_install libunwind8 gettext
-
-echo "Installing ping tool"
-apt-get update
-apt-get install -y iputils-ping
+apt_install libunwind8 gettext iputils-ping
 
 echo "Installing dotnet"
 install_dotnet $BUILD_DIR $CACHE_DIR $NETCORE_SDK $NETCORE_VERSION
