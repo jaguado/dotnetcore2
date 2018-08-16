@@ -20,6 +20,12 @@ BP_DIR=$(cd $(dirname ${0:-}); cd ..; pwd)
 : ${NETCORE_SDK:="2.1.4"}
 : ${NETCORE_VERSION:="2.0.5"}
 
+
+echo "BUILD_DIR=${BUILD_DIR}"
+echo "CACHE_DIR=${CACHE_DIR}"
+echo "ENV_DIR=${ENV_DIR}"
+
+
 mkdir -p $BUILD_DIR/.profile.d
 cp $BP_DIR/profile/* $BUILD_DIR/.profile.d/
 
