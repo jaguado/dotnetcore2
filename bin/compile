@@ -81,11 +81,11 @@ if [ -f "newrelic" ]; then
     export CORECLR_PROFILER_PATH="/usr/local/newrelic-netcore20-agent/libNewRelicProfiler.so"
     export NEW_RELIC_LICENSE_KEY={NEW_RELIC_LICENSE_KEY}
     export NEW_RELIC_APP_NAME={NEW_RELIC_APP_NAME}
-	cat << EOT >> ${BUILD_DIR}/Procfile
+
 	web: cd \$HOME/release && ASPNETCORE_URLS='http://+:\$PORT' && /usr/local/newrelic-netcore20-agent/run.sh dotnet "./${PROJECT_NAME}.dll"
 else
 	echo "Running without newrelic support"
-	web: cd \$HOME/release && ASPNETCORE_URLS='http://+:\$PORT' && dotnet "./${PROJECT_NAME}.dll"
 fi
-
+cat << EOT >> ${BUILD_DIR}/Procfile
+web: cd \$HOME/release && ASPNETCORE_URLS='http://+:\$PORT' && dotnet "./${PROJECT_NAME}.dll"
 EOT
