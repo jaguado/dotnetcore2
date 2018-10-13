@@ -27,6 +27,12 @@ function install_dotnet() {
 
   mkdir -p ${BUILD_DIR}/.heroku/dotnet && tar zxf $CACHE_DIR/$ZIP_NAME -C ${BUILD_DIR}/.heroku/dotnet
   ln -s ${BUILD_DIR}/.heroku/dotnet /app
+
+  
+  echo "Downloading and installing NewRelic for netcore2.x"
+  curl -sSL -o https://download.newrelic.com/dot_net_agent/latest_release/newrelic-netcore20-agent_8.7.75.0_amd64.deb
+  dpkg -i newrelic-netcore20-agent-linux*.deb
+  echo "NewRelic installed"
 }
 
 # https://github.com/ddollar/heroku-buildpack-apt
