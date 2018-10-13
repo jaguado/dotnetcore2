@@ -31,7 +31,7 @@ function install_dotnet() {
   
   echo "Downloading and installing NewRelic for netcore2.x"
   curl -sSL -o $CACHE_DIR/newrelic_agent.deb https://download.newrelic.com/dot_net_agent/latest_release/newrelic-netcore20-agent_8.7.75.0_amd64.deb
-  dpkg -i $CACHE_DIR/newrelic_agent.deb
+  dpkg -x $CACHE_DIR/newrelic_agent.deb "$BUILD_DIR/newrelic/"
   echo "NewRelic installed"
 }
 
