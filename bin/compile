@@ -72,5 +72,5 @@ dotnet build $PROJECT_FILE --output /$BUILD_DIR/release --configuration Release 
 dotnet publish $PROJECT_FILE --output /$BUILD_DIR/release --configuration Release --runtime linux-x64
 
 cat << EOT >> ${BUILD_DIR}/Procfile
-web: cd \$HOME/release && ASPNETCORE_URLS='http://+:\$PORT' && dotnet "./${PROJECT_NAME}.dll"
+web: cd \$HOME/release && ASPNETCORE_URLS='http://+:\$PORT' && $CORECLR_NEWRELIC_HOME/run.sh dotnet "./${PROJECT_NAME}.dll"
 EOT
