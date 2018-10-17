@@ -1,4 +1,4 @@
-# Heroku .NET Core 2.1 Buildpack
+# Heroku .NET Core 2.x Buildpack
 
 ## NOW with NewRelic support
 ### Just add these environment variables in your Heroku app
