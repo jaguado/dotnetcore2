@@ -48,6 +48,9 @@ if [ -n "$(cat $PROJECT_FILE | grep 'netcoreapp2.0')" ]; then
 elif [ -n "$(cat $PROJECT_FILE | grep 'netcoreapp2.1')" ]; then
 	NETCORE_SDK="2.1.403"
 	NETCORE_VERSION="2.1.0"
+elif [ -n "$(cat $PROJECT_FILE | grep 'netcoreapp2.2')" ]; then
+	NETCORE_SDK="2.2.202"
+	NETCORE_VERSION="2.2.0"
 fi
 
 echo "Installing the dependencies"
