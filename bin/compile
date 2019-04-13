@@ -71,7 +71,7 @@ fi
 
 echo "Project name: ${PROJECT_NAME}"
 echo "publish ${PROJECT_FILE}"
-dotnet test --configuration Release /p:CollectCoverage=true
+dotnet test --configuration Release /p:CollectCoverage=true --runtime linux-x64
 dotnet build $PROJECT_FILE --output /$BUILD_DIR/release --configuration Release --runtime linux-x64
 dotnet publish $PROJECT_FILE --output /$BUILD_DIR/release --configuration Release --runtime linux-x64
 
