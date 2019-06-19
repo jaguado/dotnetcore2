@@ -60,21 +60,20 @@ apt_install libunwind8 gettext iputils-ping
 
 echo "Check if is necesary and install node"
 export ANGULAR_PATH=$(x=$(dirname $(find ${BUILD_DIR} -maxdepth 5 -iname package.json | head -1)); while [[ "$x" =~ $BUILD_DIR ]] ; do find "$x" -maxdepth 1 -name package.json; x=`dirname "$x"`; done)
-if [ -d "$ANGULAR_PATH" ]; then
-	# Install Node
-	NODE_PATH=`mktemp -d`
-	curl https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz -Ls \
-		| tar xz -C ${NODE_PATH}
-	export PATH="${NODE_PATH}/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
-	npm -v
+echo $ANGULAR_PATH
+# Install Node
+NODE_PATH=`mktemp -d`
+curl https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz -Ls \
+	| tar xz -C ${NODE_PATH}
+export PATH="${NODE_PATH}/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
+npm -v
 
-	# Find package.json folder and install
-	cd $ANGULAR_PATH
-	npm install
+# Find package.json folder and install
+cd $ANGULAR_PATH
+npm install
 
-	# Build production static files
-	npm run build
-fi
+# Build production static files
+npm run build
 
 echo "Installing dotnet"
 install_dotnet $BUILD_DIR $CACHE_DIR $NETCORE_SDK $NETCORE_VERSION
