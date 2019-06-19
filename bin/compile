@@ -59,9 +59,9 @@ apt_install libunwind8 gettext iputils-ping
 
 
 echo "Check if is necesary and install node"
-if [[ -n $(find . -type f -iname package.json) ]]
-then
-	# Install Node
+export ANGULAR_PATH=$(dirname $(find -maxdepth 2 -iname package.json))
+if [ $ANGULAR_PATH != "" ]; then
+		# Install Node
 	NODE_PATH=`mktemp -d`
 	curl https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz -Ls \
 		| tar xz -C ${NODE_PATH}
@@ -69,7 +69,7 @@ then
 	npm -v
 
 	# Find package.json folder and install
-	cd dirname $(find -maxdepth 1 -iname package.json)
+	cd $ANGULAR_PATH
 	npm install
 
 	# Build production static files
