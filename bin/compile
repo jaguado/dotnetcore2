@@ -59,7 +59,7 @@ apt_install libunwind8 gettext iputils-ping
 
 
 echo "Check if is necesary and install node"
-export ANGULAR_PATH=$(x=$(dirname $(find ${BUILD_DIR} -maxdepth 5 -iname package.json | head -1)); while [[ "$x" =~ $BUILD_DIR ]] ; do find "$x" -maxdepth 1 -name package.json; x=`dirname "$x"`; done)
+export ANGULAR_PATH=$(dirname $(x=$(dirname $(find ${BUILD_DIR} -maxdepth 5 -iname package.json | head -1)); while [[ "$x" =~ $BUILD_DIR ]] ; do find "$x" -maxdepth 1 -name package.json; x=`dirname "$x"`; done))
 echo $ANGULAR_PATH
 # Install Node
 NODE_PATH=`mktemp -d`
