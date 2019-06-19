@@ -59,8 +59,8 @@ apt_install libunwind8 gettext iputils-ping
 
 
 echo "Check if is necesary and install node"
-export ANGULAR_PATH=$(dirname $(find -iname package.json))
-if [ $ANGULAR_PATH != "" ]; then
+export ANGULAR_PATH="template" #FIX THIS FINDING FOLDER AUTOMATICALLY
+if [ -d "$ANGULAR_PATH" ]; then
 	# Install Node
 	NODE_PATH=`mktemp -d`
 	curl https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz -Ls \
