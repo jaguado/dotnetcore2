@@ -19,7 +19,7 @@ ENV_DIR=${3:-}
 BP_DIR=$(cd $(dirname ${0:-}); cd ..; pwd)
 : ${NETCORE_SDK:="2.1.4"}
 : ${NETCORE_VERSION:="2.0.5"}
-: ${NODE_VERSION:="0.10.16"}
+: ${NODE_VERSION:="8.9.4"}
 
 
 echo "BUILD_DIR=${BUILD_DIR}"
