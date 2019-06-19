@@ -59,7 +59,7 @@ apt_install libunwind8 gettext iputils-ping
 
 
 echo "Check if is necesary and install node"
-export ANGULAR_PATH=$(dirname $(find -maxdepth 2 -iname package.json))
+export ANGULAR_PATH=$(dirname $(find -maxdepth 3 -iname package.json))
 if [ $ANGULAR_PATH != "" ]; then
 		# Install Node
 	NODE_PATH=`mktemp -d`
