@@ -75,6 +75,9 @@ if [ -d "$ANGULAR_PATH" ]; then
 
 	# Build production static files
 	npm run build
+
+	# Clean
+	npm run clean
 fi
 
 echo "Installing dotnet"
