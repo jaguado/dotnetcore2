@@ -99,6 +99,9 @@ echo "publish ${PROJECT_FILE}"
 dotnet build $PROJECT_FILE --output /$BUILD_DIR/release --configuration Release --runtime linux-x64
 dotnet publish $PROJECT_FILE --output /$BUILD_DIR/release --configuration Release --runtime linux-x64
 
+## Left only Release folder
+rm -rf !("release")
+
 cat << EOT >> ${BUILD_DIR}/Procfile
 web: cd \$HOME/release && ASPNETCORE_URLS='http://+:\$PORT' && /app/newrelic/usr/local/newrelic-netcore20-agent/run.sh dotnet "./${PROJECT_NAME}.dll"
 EOT
