@@ -73,9 +73,9 @@ if [ -d "$ANGULAR_PATH" ]; then
 	cd $ANGULAR_PATH
 	npm install
 
-	# Build production static files
-	npm run build
-
+	# Build static files depending of the environment
+	if [ "$ASPNETCORE_ENVIRONMENT" = "Production" ] ; then npm run dockerbuild_Production; else npm run dockerbuild_Dev; fi
+	
 	# Clean
 	npm run clean
 fi
