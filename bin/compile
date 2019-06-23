@@ -103,7 +103,7 @@ dotnet build $PROJECT_FILE --output /$BUILD_DIR/release --configuration Release 
 dotnet publish $PROJECT_FILE --output /$BUILD_DIR/release --configuration Release --runtime linux-x64
 
 ## Remove folder with source code
-export SRC_PATH = $(dirname ${PROJECT_FILE})
+export SRC_PATH=$(dirname ${PROJECT_FILE})
 echo "DotNet Source Path: ${SRC_PATH}"
 rm -rf SRC_PATH
 
