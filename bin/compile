@@ -60,7 +60,7 @@ apt_install libunwind8 gettext iputils-ping
 
 echo "Check if is necesary and install node"
 export ANGULAR_PATH=$(dirname $(x=$(dirname $(find ${BUILD_DIR} -maxdepth 5 -iname package.json | head -1)); while [[ "$x" =~ $BUILD_DIR ]] ; do find "$x" -maxdepth 1 -name package.json; x=`dirname "$x"`; done))
-echo $ANGULAR_PATH
+echo "Angular Path: {$ANGULAR_PATH}"
 if [ -d "$ANGULAR_PATH" ]; then
 	# Install Node
 	NODE_PATH=`mktemp -d`
@@ -78,6 +78,9 @@ if [ -d "$ANGULAR_PATH" ]; then
 	
 	# Clean
 	npm run clean
+	
+	cd ..
+	rm -rf $ANGULAR_PATH
 fi
 
 echo "Installing dotnet"
@@ -99,8 +102,10 @@ echo "publish ${PROJECT_FILE}"
 dotnet build $PROJECT_FILE --output /$BUILD_DIR/release --configuration Release --runtime linux-x64
 dotnet publish $PROJECT_FILE --output /$BUILD_DIR/release --configuration Release --runtime linux-x64
 
-## Left only Release folder
-find . -maxdepth 1 -type f -delete ! -iname release
+## Remove folder with source code
+export SRC_PATH = $(dirname ${PROJECT_FILE})
+echo "DotNet Source Path: ${SRC_PATH}"
+rm -rf SRC_PATH
 
 cat << EOT >> ${BUILD_DIR}/Procfile
 web: cd \$HOME/release && ASPNETCORE_URLS='http://+:\$PORT' && /app/newrelic/usr/local/newrelic-netcore20-agent/run.sh dotnet "./${PROJECT_NAME}.dll"
