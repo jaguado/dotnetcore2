@@ -67,6 +67,7 @@ if [ -d "$ANGULAR_PATH" ]; then
 	curl https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz -Ls \
 		| tar xz -C ${NODE_PATH}
 	export PATH="${NODE_PATH}/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
+	echo "Npm version:"
 	npm -v
 
 	# Find package.json folder and install
@@ -90,6 +91,7 @@ export PATH="/app/dotnet:${PATH}"
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}"
 
 cd $BUILD_DIR
+echo "Dotnet version:"
 dotnet --info
 
 if [ -z "${PROJECT_NAME:-}" ]; then
