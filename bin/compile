@@ -104,7 +104,8 @@ echo "publish ${PROJECT_FILE}"
 dotnet build $PROJECT_FILE --output /$BUILD_DIR/release --configuration Release --runtime linux-x64
 dotnet publish $PROJECT_FILE --output /$BUILD_DIR/release --configuration Release --runtime linux-x64
 
-## Remove all files except Procfile and Release folder
+echo "Remove all files and folders except Procfile and Release folder"
+cd $BUILD_DIR
 find . -maxdepth 1 ! -name Procfile ! -name release -delete
 
 cat << EOT >> ${BUILD_DIR}/Procfile
