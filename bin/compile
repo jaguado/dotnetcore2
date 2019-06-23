@@ -106,7 +106,7 @@ dotnet publish $PROJECT_FILE --output /$BUILD_DIR/release --configuration Releas
 
 echo "Remove all files and folders except Procfile and Release folder"
 cd $BUILD_DIR
-find . -maxdepth 1 ! -name Procfile ! -name release -delete
+find -maxdepth 1 ! -name Procfile ! -name release -delete
 
 cat << EOT >> ${BUILD_DIR}/Procfile
 web: cd \$HOME/release && ASPNETCORE_URLS='http://+:\$PORT' && /app/newrelic/usr/local/newrelic-netcore20-agent/run.sh dotnet "./${PROJECT_NAME}.dll"
