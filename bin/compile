@@ -104,11 +104,11 @@ echo "publish ${PROJECT_FILE}"
 dotnet build $PROJECT_FILE --output /$BUILD_DIR/release --configuration Release --runtime linux-x64
 dotnet publish $PROJECT_FILE --output /$BUILD_DIR/release --configuration Release --runtime linux-x64
 
-export SRC_PATH=$(dirname $PROJECT_FILE)
-echo "Source Path: $SRC_PATH"
-echo "Remove all files and folders except Procfile and Release folder ignoring errors"
-rm -rf $SRC_PATH
-find -maxdepth 1 ! -name Procfile ! -name release -delete || true
+# export SRC_PATH=$(dirname $PROJECT_FILE)
+# echo "Source Path: $SRC_PATH"
+# echo "Remove all files and folders except Procfile and Release folder ignoring errors"
+# rm -rf $SRC_PATH
+# find -maxdepth 1 ! -name Procfile ! -name release -delete || true
 
 cat << EOT >> ${BUILD_DIR}/Procfile
 web: cd \$HOME/release && ASPNETCORE_URLS='http://+:\$PORT' && /app/newrelic/usr/local/newrelic-netcore20-agent/run.sh dotnet "./${PROJECT_NAME}.dll"
