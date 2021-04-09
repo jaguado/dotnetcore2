@@ -7,8 +7,8 @@ set -o pipefail   # don't ignore exit codes when piping output
 set -o nounset    # fail on unset variables
 unset GIT_DIR     # Avoid GIT_DIR leak from previous build steps
 
-if [ "$STACK" != "heroku-14" ] && [ "$STACK" != "heroku-16" ] && [ "$STACK" != "heroku-18" ]; then
-	echo "Need heroku-14 or heroku-16 or heroku-18 stack"
+if [ "$STACK" != "heroku-14" ] && [ "$STACK" != "heroku-16" ] && [ "$STACK" != "heroku-18" ] && [ "$STACK" != "heroku-20" ]; then
+	echo "Need heroku-14 or heroku-16 or heroku-18 stack or heroku-20 stack"
 	exit 1
 fi
 
@@ -55,7 +55,7 @@ elif [ -n "$(cat $PROJECT_FILE | grep 'netcoreapp2.2')" ]; then
 fi
 
 echo "Installing the dependencies"
-apt_install libunwind8 gettext iputils-ping
+apt_install libunwind8 gettext iputils-ping libgdiplus
 
 
 echo "Check if is necesary and install node"
