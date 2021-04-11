@@ -34,10 +34,9 @@ function install_dotnet() {
   dpkg -x $CACHE_DIR/newrelic_agent.deb "$BUILD_DIR/newrelic/"
   echo "NewRelic installed in $BUILD_DIR/newrelic/" 
   
-  echo "Install Microsoft Fonts"
-  curl -sSL -o $CACHE_DIR/ttf-mscorefonts-installer_3.7_all.deb http://ftp.br.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.7_all.deb
-  dpkg -i $CACHE_DIR/ttf-mscorefonts-installer_3.7_all.deb
-  echo "Fonts installed"
+  echo "Downloading Microsoft Fonts"
+  curl -sSL -o $apt_cache_dir/archives/ttf-mscorefonts-installer_3.7_all.deb http://ftp.br.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.7_all.deb
+  echo "Fonts downloaded"
 }
 
 # https://github.com/ddollar/heroku-buildpack-apt
