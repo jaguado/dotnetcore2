@@ -61,11 +61,6 @@ function apt_install(){
   
   topic "Cleaning apt caches"
   apt-get $apt_options clean | indent
-  
-  topic "Enabling multiverse sources"
-  apt-get install -y software-properties-common
-  apt-add-repository universe
-  apt-add-repository multiverse
   topic "Updating apt caches"
   apt-get  --allow-unauthenticated $apt_options update | indent
 
