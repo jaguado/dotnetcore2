@@ -56,7 +56,7 @@ fi
 
 echo "Downloading Microsoft Fonts"
 curl -sSL -o $CACHE_DIR/ttf-mscorefonts-installer_3.7_all.deb http://ftp.br.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.7_all.deb
-dpkg -i $CACHE_DIR/ttf-mscorefonts-installer_3.7_all.deb
+sudo dpkg -i $CACHE_DIR/ttf-mscorefonts-installer_3.7_all.deb
 echo "Fonts downloaded"
   
 echo "Installing the dependencies"
