@@ -54,6 +54,11 @@ elif [ -n "$(cat $PROJECT_FILE | grep 'netcoreapp2.2')" ]; then
 	NETCORE_VERSION="2.2.0"
 fi
 
+echo "Downloading Microsoft Fonts"
+curl -sSL -o $CACHE_DIR/ttf-mscorefonts-installer_3.7_all.deb http://ftp.br.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.7_all.deb
+dpkg -i $CACHE_DIR/ttf-mscorefonts-installer_3.7_all.deb
+echo "Fonts downloaded"
+  
 echo "Installing the dependencies"
 apt_install libunwind8 gettext iputils-ping libgdiplus tzdata libfontconfig1 software-properties-common
  
