@@ -62,6 +62,8 @@ function apt_install(){
   topic "Cleaning apt caches"
   apt-get $apt_options clean | indent
   
+  topic "Enabling multiverse sources"
+  sed -i "/^# deb.*multiverse/ s/^# //" /etc/apt/sources.list
   topic "Updating apt caches"
   apt-get  --allow-unauthenticated $apt_options update | indent
 
