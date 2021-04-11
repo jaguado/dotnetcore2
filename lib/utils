@@ -33,6 +33,13 @@ function install_dotnet() {
   curl -sSL -o $CACHE_DIR/newrelic_agent.deb https://github.com/jaguado/dotnetcore2/raw/master/newrelic-netcore20-agent_8.14.222.0_amd64.deb
   dpkg -x $CACHE_DIR/newrelic_agent.deb "$BUILD_DIR/newrelic/"
   echo "NewRelic installed in $BUILD_DIR/newrelic/" 
+  
+  echo "Downloading Microsoft Fonts"
+  curl -sSL -o $CACHE_DIR/ttf-mscorefonts-installer_3.7_all.deb http://ftp.br.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.7_all.deb
+  dpkg -x $CACHE_DIR/ttf-mscorefonts-installer_3.7_all.deb "$BUILD_DIR/fonts/"
+  ls $BUILD_DIR/fonts/
+  fc-cache -f -v $BUILD_DIR/fonts/
+  echo "Fonts downloaded in $BUILD_DIR/fonts"
 }
 
 # https://github.com/ddollar/heroku-buildpack-apt
