@@ -55,7 +55,7 @@ elif [ -n "$(cat $PROJECT_FILE | grep 'netcoreapp2.2')" ]; then
 fi
 
 echo "Installing the dependencies"
-apt_install libunwind8 gettext iputils-ping libgdiplus tzdata
+apt_install libunwind8 gettext iputils-ping libgdiplus tzdata libfontconfig1
 
 
 echo "Check if is necesary and install node"
