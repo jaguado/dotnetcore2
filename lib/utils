@@ -63,11 +63,8 @@ function apt_install(){
   apt-get $apt_options clean | indent
   
   topic "Enabling multiverse sources"
-  apt-add-repository 'deb http://myserver/path/to/repo stable myrepo'
-  apt-add-repository 'http://myserver/path/to/repo myrepo'
-  apt-add-repository 'https://packages.medibuntu.org free non-free'
-  apt-add-repository http://extras.ubuntu.com/ubuntu
-  apt-add-repository ppa:user/repository
+  apt-get install -y software-properties-common
+  apt-add-repository universe
   apt-add-repository multiverse
   topic "Updating apt caches"
   apt-get  --allow-unauthenticated $apt_options update | indent
