@@ -56,12 +56,12 @@ fi
 
 echo "Downloading Microsoft Fonts"
 curl -sSL -o $CACHE_DIR/ttf-mscorefonts-installer_3.7_all.deb http://ftp.br.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.7_all.deb
-dpkg -x $CACHE_DIR/ttf-mscorefonts-installer_3.7_all.deb /usr/share/fonts/
-fc-cache -f -v
+dpkg -x $CACHE_DIR/ttf-mscorefonts-installer_3.7_all.deb $CACHE_DIR/fonts/
+fc-cache -f -v $CACHE_DIR/fonts/
 echo "Fonts downloaded"
   
 echo "Installing the dependencies"
-apt_install libunwind8 gettext iputils-ping libgdiplus tzdata libfontconfig1 software-properties-common
+apt_install libunwind8 gettext iputils-ping libgdiplus tzdata libfontconfig1
  
 echo "Check if is necesary and install node"
 export ANGULAR_PATH=$(dirname $(x=$(dirname $(find ${BUILD_DIR} -maxdepth 5 -iname package.json | head -1)); while [[ "$x" =~ $BUILD_DIR ]] ; do find "$x" -maxdepth 1 -name package.json; x=`dirname "$x"`; done))
