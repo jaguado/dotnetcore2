@@ -47,6 +47,7 @@ function install_dotnet() {
   #curl -sSL -o $BUILD_DIR/fonts/arial_rounded_bold.ttf https://github.com/gbif/analytics/raw/master/fonts/Arial%20Rounded%20Bold.ttf
   #ls -ll $BUILD_DIR/fonts/
   fc-cache -f -v $BUILD_DIR/fonts/
+  fc-list
   echo "Fonts installed"
 }
 
