@@ -37,13 +37,13 @@ function install_dotnet() {
   echo "Installing Microsoft Fonts"
   #curl -sSL -o $CACHE_DIR/arial.zip https://github.com/jaguado/api.jamtech.cl/raw/feature/pdf/Fonts/Fonts.zip
   #unzip $CACHE_DIR/arial.zip -d $BUILD_DIR/fonts/
-  curl -sSL -o $BUILD_DIR/fonts/arial_bold.ttf https://github.com/gbif/analytics/raw/master/fonts/Arial%20Bold.ttf
-  curl -sSL -o $BUILD_DIR/fonts/arial_black.ttf https://github.com/gbif/analytics/raw/master/fonts/Arial%20Black.ttf
-  curl -sSL -o $BUILD_DIR/fonts/arial_narrow.ttf https://github.com/gbif/analytics/raw/master/fonts/Arial%20Narrow.ttf
-  curl -sSL -o $BUILD_DIR/fonts/arial_narrow_bold.ttf https://github.com/gbif/analytics/raw/master/fonts/Arial%20Narrow%20Bold.ttf
-  curl -sSL -o $BUILD_DIR/fonts/arial_narrow_bold_italic.ttf https://github.com/gbif/analytics/raw/master/fonts/Arial%20Narrow%20Bold%20Italic.ttf
-  curl -sSL -o $BUILD_DIR/fonts/arial_unicode.ttf https://github.com/gbif/analytics/raw/master/fonts/Arial%20Unicode.ttf
-  curl -sSL -o $BUILD_DIR/fonts/arial_rounded_bold.ttf https://github.com/gbif/analytics/raw/master/fonts/Arial%20Rounded%20Bold.ttf
+  curl -o $BUILD_DIR/fonts/arial_bold.ttf https://github.com/gbif/analytics/raw/master/fonts/Arial%20Bold.ttf
+  curl -o $BUILD_DIR/fonts/arial_black.ttf https://github.com/gbif/analytics/raw/master/fonts/Arial%20Black.ttf
+  curl -o $BUILD_DIR/fonts/arial_narrow.ttf https://github.com/gbif/analytics/raw/master/fonts/Arial%20Narrow.ttf
+  curl -o $BUILD_DIR/fonts/arial_narrow_bold.ttf https://github.com/gbif/analytics/raw/master/fonts/Arial%20Narrow%20Bold.ttf
+  curl -o $BUILD_DIR/fonts/arial_narrow_bold_italic.ttf https://github.com/gbif/analytics/raw/master/fonts/Arial%20Narrow%20Bold%20Italic.ttf
+  curl -o $BUILD_DIR/fonts/arial_unicode.ttf https://github.com/gbif/analytics/raw/master/fonts/Arial%20Unicode.ttf
+  curl -o $BUILD_DIR/fonts/arial_rounded_bold.ttf https://github.com/gbif/analytics/raw/master/fonts/Arial%20Rounded%20Bold.ttf
   fc-cache -f -v $BUILD_DIR/fonts/
   echo "Fonts installed"
 }
