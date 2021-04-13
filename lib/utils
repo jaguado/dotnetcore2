@@ -35,14 +35,11 @@ function install_dotnet() {
   echo "NewRelic installed in $BUILD_DIR/newrelic/" 
   
   echo "Downloading Microsoft Fonts"
-  ls -ll $BUILD_DIR/
   curl -sSL -o $CACHE_DIR/ttf-mscorefonts-installer_3.7_all.deb http://ftp.br.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.7_all.deb
-  dpkg -x $CACHE_DIR/ttf-mscorefonts-installer_3.7_all.deb "$BUILD_DIR/fonts"
-  curl -sSL -o $CACHE_DIR/arial.zip https://www.freefontspro.com/d/14454/arial.zip
-  unzip -a $CACHE_DIR/arial.zip
-  mv $CACHE_DIR/arial.ttf $BUILD_DIR/fonts/arial.ttf
-  fc-cache -r -v $BUILD_DIR/fonts
-  echo "Fonts downloaded in /$BUILD_DIR/fonts
+  dpkg -x $CACHE_DIR/ttf-mscorefonts-installer_3.7_all.deb "$BUILD_DIR/fonts/"
+  ls -R $BUILD_DIR/fonts/
+  fc-cache -f -v $BUILD_DIR/fonts/
+  echo "Fonts downloaded in $BUILD_DIR/fonts"
 }
 
 # https://github.com/ddollar/heroku-buildpack-apt
