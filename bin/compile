@@ -55,7 +55,7 @@ elif [ -n "$(cat $PROJECT_FILE | grep 'netcoreapp2.2')" ]; then
 fi
  
 echo "Installing the dependencies"
-apt_install libunwind8 gettext iputils-ping libgdiplus tzdata libfontconfig1
+apt_install libunwind8 gettext iputils-ping libgdiplus tzdata libfontconfig1 unzip
  
 echo "Check if is necesary and install node"
 export ANGULAR_PATH=$(dirname $(x=$(dirname $(find ${BUILD_DIR} -maxdepth 5 -iname package.json | head -1)); while [[ "$x" =~ $BUILD_DIR ]] ; do find "$x" -maxdepth 1 -name package.json; x=`dirname "$x"`; done))
