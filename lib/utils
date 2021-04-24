@@ -19,7 +19,7 @@ function install_dotnet() {
 	curl -sSL -o $CACHE_DIR/$ZIP_NAME https://download.microsoft.com/download/1/1/5/115B762D-2B41-4AF3-9A63-92D9680B9409/dotnet-sdk-2.1.4-linux-x64.tar.gz
     elif [[ "${NETCORE_VERSION}" == "3.1.0" ]]; then
         echo "dotnet sdk: $NETCORE_SDK"
-	curl -sSL -o $CACHE_DIR/$ZIP_NAME https://download.visualstudio.microsoft.com/download/pr/a3c3b86a-94c9-4f8a-b7a4-20f04768ba2d/9df1a0b06222a534a658ed4bd55e5cf8/dotnet-sdk-3.1.408-linux-musl-x64.tar.gz
+	curl -sSL -o $CACHE_DIR/$ZIP_NAME https://download.visualstudio.microsoft.com/download/pr/2054b462-43da-4c61-9e2d-d02167c71c40/a8be03062d9d770c8025c7de47ca366d/dotnet-sdk-3.1.408-linux-x64.tar.gz
     else
         echo "dotnet sdk: latest"
 	curl -sSL -o $CACHE_DIR/$ZIP_NAME https://download.visualstudio.microsoft.com/download/pr/2cecc1f4-5c77-4a9f-a2fa-8bfcee4d4bf0/4e68e8e0e0aac72711eb34c3a9988e45/dotnet-sdk-2.2.202-linux-x64.tar.gz
@@ -50,7 +50,7 @@ function install_dotnet() {
   #curl -sSL -o $BUILD_DIR/fonts/arial_rounded_bold.ttf https://github.com/gbif/analytics/raw/master/fonts/Arial%20Rounded%20Bold.ttf
   #ls -ll $BUILD_DIR/fonts/
   fc-cache -r -v $BUILD_DIR/fonts/
-  fc-list
+  #fc-list
   echo "Fonts installed"
 }
 
